@@ -37,18 +37,29 @@ public:
         if (x == 1) {
             return 1;
         }
+        bool isNegative = false;
+        long long int false_n = n;
+        if(n < 0) {
+            isNegative = true;
+            false_n = n;
+            false_n = -false_n;
+        }
         double sideways = 1;
-        while (n > 1) {
-            if (n % 2) {
+        while (false_n > 1) {
+            if (false_n % 2) {
                 sideways *= result;           
             }
             result *= result;
             // cout << "n = " << n << endl;
             // cout << "result = " << result << endl;
             // cout << "sideways = " << sideways << endl;
-            n /= 2;
+            false_n /= 2;
         }
-        return result * sideways;
+        result = result * sideways;
+        if (isNegative) {
+            result = 1 / result;
+        }
+        return result;
         // below solution doesn't work..
         // if(n == 0) 
         //     return 1;

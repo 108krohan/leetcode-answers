@@ -26,12 +26,10 @@ public:
             head = head->next;
         }
         ListNode* start = head;
-        while (start) {
-            if (start->next) {
-                if (start->next->val == val) {
-                    start->next = start->next->next;
-                    continue;
-                }
+        while (start && start->next) {
+            if (start->next->val == val) {
+                start->next = start->next->next;
+                continue;
             }
             start = start->next;
         }

@@ -36,7 +36,7 @@ public:
             if (it->second % 2 != 0) {
                 hasOdds = true;
             }
-            result += ((it->second / 2) * 2);
+            result += (it->second - it->second % 2);
         }
         if (hasOdds) {
             result += 1;
